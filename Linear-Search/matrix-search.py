@@ -8,13 +8,16 @@ matrix = [
   [4, 5, 6],
   [7, 8, 9]
 ]
-target = 5
+target = 9
 
 def matrix_search(martix, target, count=[]):
     for i in range(len(matrix)):
-        for j in range(i):
-            if matrix[i, j] == target:
-                count.append(i, j)
+        if target in matrix[i]:
+            count.append(i)
+            x = matrix[i]
+            for j in range(len(x)):
+                if x[j] == target:
+                    count.append(j)
     return count
 
 print(matrix_search(matrix, target))
