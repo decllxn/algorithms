@@ -4,7 +4,7 @@
 # Difficulty: 40
 # Return how many times a number appears in a sorted array.
 
-arr = [1, 2, 2, 2, 3, 4]
+arr = [1, 2, 2, 2, 2, 2, 2, 3, 4]
 target = 2
 
 def find_first(arr, target):
@@ -13,16 +13,16 @@ def find_first(arr, target):
 
     while left <= right:
         mid = (left + right) // 2
+
         if arr[mid] == target:
             result = mid
-            right = mid - 1  # Go left for earlier occurrence
+            right = mid - 1
         elif arr[mid] < target:
             left = mid + 1
         else:
             right = mid - 1
-
     return result
-
+    
 def find_last(arr, target):
     left, right = 0, len(arr) - 1
     result = -1
@@ -31,13 +31,13 @@ def find_last(arr, target):
         mid = (left + right) // 2
         if arr[mid] == target:
             result = mid
-            left = mid + 1  # Go right for later occurrence
+            left = mid + 1
         elif arr[mid] < target:
             left = mid + 1
         else:
             right = mid - 1
-
     return result
+
 
 def count_occurrences(arr, target):
     first = find_first(arr, target)
@@ -47,7 +47,4 @@ def count_occurrences(arr, target):
         return 0
     return last - first + 1
 
-
-arr = [1, 2, 2, 2, 3, 4]
-target = 2
-print(count_occurrences(arr, target))  # Output: 3
+print(count_occurrences(arr, target)) 
